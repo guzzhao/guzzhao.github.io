@@ -1,2 +1,2 @@
 User-agent: *
-Sitemap: https://guzzhao.github.io/blog/sitemap.xml
+Sitemap: https://guzzhao.github.io/sitemap.xml
