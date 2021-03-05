@@ -54,7 +54,7 @@ windows正在用及备用软件
 windows正在用及备用软件
 "><meta itemprop="datePublished" content="2020-10-21T17:40:47&#43;08:00" />
 <meta itemprop="dateModified" content="2020-10-21T17:40:47&#43;08:00" />
-<meta itemprop="wordCount" content="232">
+<meta itemprop="wordCount" content="270">
 <meta itemprop="keywords" content="ceshi," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="windows软件清单"/>
 <meta name="twitter:description" content="
@@ -212,33 +212,35 @@ windows正在用及备用软件
 </span><span class="lnt">33
 </span><span class="lnt">34
 </span><span class="lnt">35
+</span><span class="lnt">36
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">notepad3替换
+<pre class="chroma"><code class="language-bash" data-lang="bash">
+<span class="c1"># notepad3替换</span>
 
 @echo off
-cd /d &#34;%~dp0&#34;
+<span class="nb">cd</span> /d <span class="s2">&#34;%~dp0&#34;</span>
 echo.
-echo 请确认是以管理员权限运行本批处理文件！!
+<span class="nb">echo</span> 请确认是以管理员权限运行本批处理文件！!
 echo.
 pause
-cd /d &#34;%~dp0&#34;
-reg add &#34;HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\notepad.exe&#34; /v &#34;Debugger&#34; /d &#34;\&#34;%~dp0Notepad3.exe\&#34; /z&#34; /f
+<span class="nb">cd</span> /d <span class="s2">&#34;%~dp0&#34;</span>
+reg add <span class="s2">&#34;HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\notepad.exe&#34;</span> /v <span class="s2">&#34;Debugger&#34;</span> /d <span class="s2">&#34;\&#34;%~dp0Notepad3.exe\&#34; /z&#34;</span> /f
 cls
 echo.
 echo.
 pause
 
-notepad3还原
+<span class="c1"># notepad3还原</span>
 
 @echo off
-cd /d &#34;%~dp0&#34;
+<span class="nb">cd</span> /d <span class="s2">&#34;%~dp0&#34;</span>
 echo.
-echo 请确认是以管理员权限运行本批处理文件！!
+<span class="nb">echo</span> 请确认是以管理员权限运行本批处理文件！!
 echo.
 pause
-cd /d &#34;%~dp0&#34;
-reg add &#34;HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\notepad.exe&#34; /v &#34;Debugger&#34; /d &#34;\&#34;%~dp0Notepad3.exe\&#34; /z&#34; /f
+<span class="nb">cd</span> /d <span class="s2">&#34;%~dp0&#34;</span>
+reg add <span class="s2">&#34;HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\notepad.exe&#34;</span> /v <span class="s2">&#34;Debugger&#34;</span> /d <span class="s2">&#34;\&#34;%~dp0Notepad3.exe\&#34; /z&#34;</span> /f
 cls
 echo.
 echo.
@@ -276,8 +278,34 @@ pause
 <h2 id="windows设置">windows设置</h2>
 <ol>
 <li>开启h-v/wsl2</li>
-<li></li>
 </ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># wsl2 </span>
+<span class="nb">export</span> <span class="nv">windows_host</span><span class="o">=</span><span class="sb">`</span>cat /etc/resolv.conf<span class="p">|</span>grep nameserver<span class="p">|</span>awk <span class="s1">&#39;{print $2}&#39;</span><span class="sb">`</span>
+<span class="nb">export</span> <span class="nv">ALL_PROXY</span><span class="o">=</span>socks5://<span class="nv">$windows_host</span>:10808
+<span class="nb">export</span> <span class="nv">HTTP_PROXY</span><span class="o">=</span><span class="nv">$ALL_PROXY</span>
+<span class="nb">export</span> <span class="nv">http_proxy</span><span class="o">=</span><span class="nv">$ALL_PROXY</span>
+<span class="nb">export</span> <span class="nv">HTTPS_PROXY</span><span class="o">=</span><span class="nv">$ALL_PROXY</span>
+<span class="nb">export</span> <span class="nv">https_proxy</span><span class="o">=</span><span class="nv">$ALL_PROXY</span>
+
+
+<span class="c1"># 配置防火墙 !!!</span>
+</code></pre></td></tr></table>
+</div>
+</div>
     </div>
 
     <div class="post-copyright">
